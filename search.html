@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>My Store</title>
+        
+        <script src="./include/prodbs.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="src/SimpleStarRating.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+        
+    </head>
+    
+    <body>
+        
+        <div class="container">
+            <div class="header"><a href="#"><img src="./logo2.jpg" alt="not found" name="Insert_logo" width="20%" height="90" id="Insert_logo" style="background-color: #8090AB; display:block;" /></a> 
+            </div>
+            <div class="button">
+                <button id="btn001" type="button">Sign Up!</button>
+                <button id="btn002" type="button" class="fas fa-shopping-cart fa-2x"></button>
+                
+            </div>
+            
+            <!-----search bar----->
+            
+<form class="srcbartn" action="search.html" >
+<input type="text" id="srch001" placeholder="Product Search.." name="search" onclick="listFunction()" onkeyup="searchFunction()" autocomplete = "off">
+<button type="submit" ><i class="fa fa-search"></i></button>
+<ul id="productline"></ul>
+</form>
+<script>
+
+function listFunction(){
+    var prdlin = document.getElementById("productline");
+    var allist = "" ;
+    for (i = 0 ; i < prodb.length ; i++)
+    {
+        allist += "<li id= 'liid" + i + "'><a href='product.html'>"  + prodb[i].pname + "</a><li>" ;
+        
+        
+    }
+    prdlin.innerHTML += allist;
+    var onclikoff = document.getElementById("srch001");
+    onclikoff.removeAttribute("onclick");
+}
+
+
+function    searchFunction(){
+    
+    var input, filter, i, txtValue ;
+    input = document.getElementById("srch001");
+    filter = input.value.toUpperCase();
+    
+    
+    for (i = 0; i < prodb.length; i++) {
+        var idname = "liid" + i ;
+        var iddom = document.getElementById (idname);
+        txtValue =  prodb[i].pname;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            iddom.style.display = "";
+            } else {
+            iddom.style.display = "none";
+        }
+    }
+}
+
+</script>
+
+
+
+
+            
+            
+            <!----- End search bar-----> 
+            
+            <div class="content">
+                <h1>Your Shop</h1>
+                <h2>Search</h2>
+                
+                <!-----Start Featured nav------->
+                
+                <nav class="product-filter">
+                    
+                    <h1>Toys</h1>
+                    
+                    <div class="sort">
+                        
+                        <div class="collection-sort">
+                            <label>Filter by:</label>
+                            <select id="sel1" onchange = "filterFunc()">
+                                <option   value="all toys">all toys</option>
+                                <option  value="gun">Gun</option>
+                                <option  value="doll">Doll</option>
+								<option  value="other">Other</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label>Sort by:</label>
+                            <select id="sel2" onchange = "sortFunc()">
+                            <option   value="nosort">No sort</option>
+                                <option value="price">Price</option>
+                                <option value="featured">Featured</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    
+                </nav>
+                
+                
+                <!------End Featured nav------>   
+                
+                <!-----Start Featured Product------->
+                <section class="products" id="sectionpart">
+                    
+                    
+                    <div class="product-card" id = "doll1">
+                        <div class="product-image">
+                            <img src="./img/toy1.jpg" class="primg0" alt="unavailable">
+                        </div>
+                        <div class="product-info">
+                            <h5>Plashy Toy</h5>
+                            <h6>$19.99</h6>
+                            <!-----start rating----->
+                            <span class="rating" data-default-rating="4.5"></span> 
+                            <!-----end rating----->
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="product-card" id = "doll2">
+                        <div class="product-image">
+                            <img src="./img/toy2.jpg" class="primg0" alt="unavailable">
+                        </div>
+                        <div class="product-info">
+                            <h5>Teddy Bear</h5>
+                            <h6>$9.99</h6>
+                            <!-----start rating----->
+                            <span class="rating" data-default-rating="3.5"></span> 
+                            <!-----end rating----->
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" id = "gun1">
+                        <div class="product-image">
+                            <img src="./img/gun1.jpg" class="primg0" alt="unavailable">
+                        </div>
+                        <div class="product-info">
+                            <h5>Toy Gun</h5>
+                            <h6>$12.08</h6>
+                            <!-----start rating----->    
+                            <span class="rating" data-default-rating="4"></span> 
+                            
+                            <!-----end rating----->
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" id = "other">
+                        <div class="product-image">
+                            <img src="./img/toy3.jpg" class="primg0" alt="unavailable">
+                        </div>
+                        <div class="product-info">
+                            <h5>Circles</h5>
+                            <h6>$20.19</h6>
+                            <!-----start rating----->
+                            
+                            <span class="rating" data-default-rating="2"></span> 
+                            
+                            <!-----end rating----->
+                        </div>
+                    </div>
+                    
+                    
+                </section>
+                
+                
+                <!-----End Featured Product------->
+                
+                <div id="product-list"></div>
+                
+                
+            </div>
+            <div class="footer">
+                <script src="./src/SimpleStarRating.js"></script>
+                
+                
+                <script>
+                    var ratings = document.getElementsByClassName('rating');
+                    
+                    for (var i = 0; i < ratings.length; i++) {
+                        var r = new SimpleStarRating(ratings[i]);
+                        
+                        ratings[i].addEventListener('rate', function(e) {
+                            console.log('Rating: ' + e.detail);
+                        });
+                    }
+			   </script> 
+               
+               <script>
+				function filterFunc() {
+                    var prodfilter = document.getElementById ("sel1");
+					var dollvar1 = document.getElementById("doll1");
+                    var dollvar2 = document.getElementById("doll2");
+
+					var gunvar = document.getElementById("gun1");
+					var othervar = document.getElementById("other");
+                    
+                    var comparevalue = prodfilter.value;
+                    
+                    if (comparevalue == "gun"){
+						dollvar1.style.display = "none";
+                        dollvar2.style.display = "none";
+                        othervar.style.display = "none";
+                        gunvar.style.display = "block";
+                       
+						}
+                        else if (comparevalue == "doll"){
+                        othervar.style.display = "none";
+                        gunvar.style.display = "none"; 
+                        dollvar1.style.display = "block";
+                        dollvar2.style.display = "block";
+                        return;
+                            }
+                            else if (comparevalue == "other"){
+                                dollvar1.style.display = "none";
+                        dollvar2.style.display = "none";
+                        gunvar.style.display = "none";
+                        othervar.style.display = "block";
+                                }
+                                else {
+                                     othervar.style.display = "block";
+                        gunvar.style.display = "block"; 
+                        dollvar1.style.display = "block";
+                        dollvar2.style.display = "block";
+                                    }
+					
+                    
+					
+                }
+                    </script>
+                    
+                    <script>
+                        function sortFunc(){
+                            var prodsort = document.getElementById ("sel2");
+                            
+                            var dollvar01 = document.getElementById("doll1");
+                    var dollvar02 = document.getElementById("doll2");
+
+					var gunvar0 = document.getElementById("gun1");
+					var othervar0 = document.getElementById("other");
+                    
+                    var comparevalue = prodsort.value;
+                    var newnodesort = document.getElementById("sectionpart");
+                    var childmaker = " ";
+                    
+                    if (comparevalue == "price"){
+                    
+                    newnodesort.removeChild (gunvar0);
+                    newnodesort.removeChild (othervar0);
+                    newnodesort.removeChild (dollvar02);
+                    newnodesort.removeChild (dollvar01);
+                    
+					childmaker += "<div class='product-card' id = 'other'>" + othervar0.innerHTML + "</div><br/>" + "<div class='product-card' id = 'doll1'>" + dollvar01.innerHTML + "</div><br/>"  + "<div class='product-card' id = 'gun1'>" + gunvar0.innerHTML + "</div><br/>" + "</div><br/>" + "<div class='product-card' id = 'doll2'>" + dollvar02.innerHTML + "</div>" ;
+                    
+                    newnodesort.innerHTML += childmaker;
+                        
+                        }  
+                        else if (comparevalue == "featured"){
+                        newnodesort.removeChild (gunvar0);
+                    newnodesort.removeChild (othervar0);
+                    newnodesort.removeChild (dollvar02);
+                    newnodesort.removeChild (dollvar01);
+                    
+					childmaker += "<div class='product-card' id = 'doll1'>" + dollvar01.innerHTML + "</div><br/>" + "<div class='product-card' id = 'gun1'>" + gunvar0.innerHTML + "</div><br/>" + "</div><br/>" + "<div class='product-card' id = 'doll2'>" + dollvar02.innerHTML + "</div><br/>" +  "<div class='product-card' id = 'other'>" + othervar0.innerHTML + "</div>" ;
+                    
+                    newnodesort.innerHTML += childmaker;
+                        
+                            
+                            }
+                    
+                            
+                            }
+                        
+                        </script>
+				
+				<!---
+                <Script>
+                    var productmp = '<div class="product"> <h3><a href="product.html?id=<ID>"><TITLE></a></h3><a href="product.html?id=<ID>"><img src="<IMAGE>" styel="width: 400px;"></a><p>Price: $<PRICE></p></div>'; 
+                    
+                    window.onload = function() {
+						
+						var search_content = window.location.search.split('search=')[1];
+						
+						document.querySelector('#src001').value = search_content;
+						
+						if (search_content !== ''){
+                            prodb.forEach(function.product){
+                                if (product.title.toLowerCase().includes(search_content.toLowerCase())){
+                                    var p = productmp.replaceAll(<ID> , prodb.id);
+                                    p = p.replace(<TITLE>, prodb.pname);
+                                    p = p.replace(<IMAGE>, prodb.image);
+                                    p = p.replace(<PRICE>, prodb.price);
+                                    document.querySelector("#product-list").innerHTML += p;                              
+
+
+                                    
+                                    }
+                                }
+                            }
+						}
+                    </Script>
+                --->
+                
+            </div>
+        </div>
+    </body>
+</html>

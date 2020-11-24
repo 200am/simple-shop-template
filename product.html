@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>My Store</title>
+        <script src="./include/prodbs.js"></script>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="src/SimpleStarRating.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+        
+    </head>
+    
+    <body>
+        
+        <div class="container">
+            <div class="header"><a href="#"><img src="./logo2.jpg" alt="not found" name="Insert_logo" width="20%" height="90" id="Insert_logo" style="background-color: #8090AB; display:block;" /></a> 
+            </div>
+            <div class="button">
+                <button id="btn001" type="button">Sign Up!</button>
+                <button id="btn002" type="button" class="fas fa-shopping-cart fa-2x"></button>
+                
+            </div>
+            
+            <div class="content">
+                <h1>Your Shop</h1><br/>
+                <h2>Products</h2>
+            </div>
+            
+            <!-------- products --------------->
+            <section class="products">
+                
+                <div class="pcard">                    
+                    <img src="./img/toy1.jpg" class="primg0" alt="unavailable" >
+                    <div class="product-info">
+                        <h1><script>document.write(prodb[0].pname);</script></h1>
+                        <p class="price" id="price0"><script>document.write(prodb[0].price);</script>$</p>
+                        <p>Product Description</p>
+                        <!-----start rating----->                        
+                        <span class="rating" data-default-rating="4.5"></span>                         
+                        <!-----end rating----->
+                    </div>
+                    <p> <form class = "pform">
+                        <label for="quantity">Enter Quantity:</label><br/>
+                        <input type="number" id="quantity0" name="quantity" min="1" max="5" onchange = "instantPrice0()">
+                        <script>
+                        function instantPrice0 () {
+                            var quantvar0 = document.getElementById("quantity0");                            
+                            var quantmp0 = quantvar0.value;                             
+							var newPrice0 = quantmp0 * (prodb[0].price);                            
+                            var priceout0 = document.getElementById ("price0");
+                            priceout0.innerHTML = newPrice0 + "$";
+                            
+                        }
+                            </script>
+                        <input class="pbutton" type="submit" value="Add to Cart">
+                    </form></p> <br/> <br/> 
+                </div>
+                <hr>
+                
+                <div class="pcard">
+                    
+                    <img src="./img/toy2.jpg" class="primg0" alt="unavailable" >
+                    <div class="product-info">
+                        <h1>Teddy Bear</h1>
+                        <p class="price" id = "price1"><script>document.write(prodb[1].price);</script>$</p>
+                    <p>Product Description</p>
+                    <!-----start rating----->
+                    <span class="rating" data-default-rating="3.5"></span> 
+                    <!-----end rating----->
+                    </div>
+                    <p> <form class = "pform">
+                    <label for="quantity">Enter Quantity:</label><br/>
+                    <input type="number" id="quantity1" name="quantity" min="1" max="5" onchange = "instantPrice1()">
+                    <script>
+                        function instantPrice1() {
+                            var quantvar1 = document.getElementById("quantity1");                            
+                            var quantmp1 = quantvar1.value;                             
+							var newPrice1 = quantmp1 * (prodb[1].price);                            
+                            var priceout1 = document.getElementById ("price1");
+                            priceout1.innerHTML = newPrice1 + "$";
+                            
+                        }
+                            </script>
+                    <input class="pbutton" type="submit" value="Add to Cart">
+                    </form></p>
+                    </div>
+                    <hr>
+                    
+                    
+                    <div class="pcard">
+                    
+                    
+                    <img src="./img/gun1.jpg" class="primg0" alt="unavailable" >
+                    <div class="product-info">
+                    <h1>Toy Gun</h1>
+                    <p class="price" id = "price2"><script>document.write(prodb[2].price);</script>$</p>
+                    <p>Product Description</p>
+                    
+                    <!-----start rating----->
+                    <span class="rating" data-default-rating="4"></span>
+                    <!-----end rating----->
+                    </div>
+                    <p> <form class = "pform">
+                    <label for="quantity">Enter Quantity:</label><br/>
+                    <input type="number" id="quantity2" name="quantity" min="1" max="5"onchange = "instantPrice2()">
+                    <script>
+                        function instantPrice2() {
+                            var quantvar2 = document.getElementById("quantity2");                            
+                            var quantmp2 = quantvar2.value;                             
+							var newPrice2 = quantmp2 * (prodb[2].price);                            
+                            var priceout2 = document.getElementById ("price2");
+                            priceout2.innerHTML = newPrice2 + "$";
+                            
+                        }
+                            </script>
+                    <input class="pbutton" type="submit" value="Add to Cart">
+                    </form></p>
+                    </div>
+                    
+                    <hr>
+                    <div class="pcard">
+                    
+                    <img src="./img/toy3.jpg" class="primg0" alt="unavailable" >
+                    <div class="product-info">
+                    <h1>Circles</h1></h1>
+                    <p class="price" id = "price3"><script>document.write(prodb[3].price);</script>$</p>
+                    <p>Product Description</p>
+                    <!-----start rating----->
+                    <span class="rating" data-default-rating="2"></span> 
+                    <!-----end rating----->
+                    
+                    </div>
+                    <p> <form class = "pform">
+                    <label for="quantity">Enter Quantity:</label><br/>
+                    <input type="number" id="quantity3" name="quantity" min="1" max="5" onchange = "instantPrice3()">
+                    <script>
+                        function instantPrice3() {
+                            var quantvar3 = document.getElementById("quantity3");                            
+                            var quantmp3 = quantvar3.value;                             
+							var newPrice3 = quantmp3 * (prodb[3].price);                            
+                            var priceout3 = document.getElementById ("price3");
+                            priceout3.innerHTML = newPrice3 + "$";
+                            
+                        }
+                            </script>
+                    <input class="pbutton" type="submit" value="Add to Cart">
+                    </form></p>
+                    </div>
+                    <hr>
+                    </section>
+                    <br>
+                    <!------- End Products-------->
+                    
+                    
+                    
+                    
+                    
+                    <div class="footer">
+                    <script src="./src/SimpleStarRating.js"></script>
+                    
+                    
+                    
+                    <script>
+                    var ratings = document.getElementsByClassName('rating');
+                    
+                    for (var i = 0; i < ratings.length; i++) {
+                    var r = new SimpleStarRating(ratings[i]);
+                    
+                    ratings[i].addEventListener('rate', function(e) {
+                    console.log('Rating: ' + e.detail);
+                    });
+                    }
+                    </script>
+                    </div>
+                    </div>
+                    </body>
+                    </html>
+                                        
